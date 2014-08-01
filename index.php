@@ -2,6 +2,17 @@
 <html>
 <head>
 
+
+<?php
+
+require_once('SteamCondenser/steam-condenser.php');
+$communityid = $_GET["steamid"];
+$steamUser = new SteamId($communityid);
+$nickname = getNickname($steamUser);
+
+?>
+
+
 <script type="text/javascript" src="test.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -71,15 +82,15 @@ text-shadow:0px 0px 0 rgb(99,142,216),1px 1px 0 rgb(70,113,187),2px 2px 0 rgb(41
 </head>
 <body>
 
-<audio autoplay='1' src='mac_song2.ogg' volume='1'>
+<audio autoplay='1' src='snoop_song.ogg' volume='1'>
 </audio>
 
 <div class="spinner"></div>
 <p class="Three-Dee">Samurai Jack's Server</p>
-<script>
-GameDetails()
-</script>
 
-<p class="Three-Dee-Loading">test1</p>
+<p class="Three-Dee-Loading"><?php
+
+echo "Welcome back, " . $nickname;
+?></p>
 </body>
 </html>
